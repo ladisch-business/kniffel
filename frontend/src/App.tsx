@@ -15,6 +15,7 @@ import SettingsPage from './pages/SettingsPage';
 
 import ProtectedRoute from './components/ProtectedRoute';
 import Layout from './components/Layout';
+import PWAInstallPrompt from './components/PWAInstallPrompt';
 
 function App() {
   const { isAuthenticated, setUser } = useAuthStore();
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-wood-light dark:bg-anthracite-900 transition-colors duration-300">
+      <PWAInstallPrompt />
       <Routes>
         <Route path="/login" element={
           isAuthenticated ? <Navigate to="/" replace /> : <LoginPage />
