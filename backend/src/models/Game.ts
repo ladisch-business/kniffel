@@ -37,9 +37,11 @@ export class GameModel {
 
   static async findPublicGames(): Promise<Game[]> {
     const query = `
-      SELECT * FROM games 
-      WHERE is_public = true AND status = 'waiting'
-      ORDER BY created_at DESC
+      SELECT g.*, u.username as creator_username
+      FROM games g
+      LEFT JOIN users u ON g.created_by = u.id
+      WHERE g.is_public = true AND g.status = 'waiting'
+      ORDER BY g.created_at DESC
     `;
     const result = await pool.query(query);
     return result.rows;

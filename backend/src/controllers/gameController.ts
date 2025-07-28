@@ -57,7 +57,19 @@ export const createGame = async (req: AuthRequest, res: Response) => {
 export const getPublicGames = async (req: AuthRequest, res: Response) => {
   try {
     const games = await GameModel.findPublicGames();
-    res.json(games);
+    
+    const gamesWithPlayers = await Promise.all(
+      games.map(async (game) => {
+        const players = await GameModel.getPlayers(game.id);
+        return {
+          ...game,
+          players,
+          current_players: players.length
+        };
+      })
+    );
+    
+    res.json(gamesWithPlayers);
   } catch (error) {
     console.error('Get public games error:', error);
     res.status(500).json({ error: 'Internal server error' });

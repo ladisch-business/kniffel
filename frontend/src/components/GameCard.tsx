@@ -20,7 +20,7 @@ const GameCard: React.FC<GameCardProps> = ({ game, onJoin, getGameModeLabel }) =
             {getGameModeLabel(game.mode)}
           </h3>
           <p className="text-sm text-wood-medium dark:text-paper-medium">
-            Erstellt von: {game.created_by}
+            Erstellt von: {game.creator_username || 'Unbekannt'}
           </p>
         </div>
         <div className="flex items-center space-x-1 text-sm text-wood-medium dark:text-paper-medium">
