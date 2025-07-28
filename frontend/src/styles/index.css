@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Crimson Text', serif;
+  }
+  
+  body {
+    @apply bg-wood-light dark:bg-anthracite-900 text-wood-dark dark:text-paper-light;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+  }
+  
+  .dark body {
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(245, 245, 220, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(245, 245, 220, 0.05) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  .wood-texture {
+    @apply bg-wood-medium;
+    background-image: 
+      linear-gradient(90deg, rgba(101, 67, 33, 0.1) 50%, transparent 50%),
+      linear-gradient(rgba(139, 69, 19, 0.1) 50%, transparent 50%);
+    background-size: 20px 20px;
+  }
+  
+  .paper-texture {
+    @apply bg-paper-light shadow-paper;
+    background-image: 
+      linear-gradient(90deg, rgba(139, 69, 19, 0.05) 1px, transparent 1px),
+      linear-gradient(rgba(139, 69, 19, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .dark .paper-texture {
+    @apply bg-anthracite-800;
+  }
+  
+  .dice-face {
+    @apply w-16 h-16 bg-white rounded-lg shadow-dice flex items-center justify-center text-wood-dark text-2xl font-bold;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  }
+  
+  .dice-dot {
+    @apply w-2 h-2 bg-wood-dark rounded-full;
+  }
+  
+  .btn-primary {
+    @apply bg-wood-medium hover:bg-wood-dark text-paper-light font-semibold py-2 px-4 rounded-lg shadow-wood transition-all duration-200 transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-paper-medium hover:bg-paper-dark text-wood-dark font-semibold py-2 px-4 rounded-lg border-2 border-wood-medium transition-all duration-200;
+  }
+  
+  .scorecard-cell {
+    @apply p-2 border border-wood-medium text-center font-handwritten text-lg;
+  }
+  
+  .scorecard-cell.filled {
+    @apply bg-wood-light dark:bg-anthracite-700 font-bold;
+  }
+  
+  .scorecard-cell.available {
+    @apply hover:bg-yellow-100 dark:hover:bg-yellow-900 cursor-pointer transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .wood-grain {
+    background-image: 
+      repeating-linear-gradient(
+        90deg,
+        rgba(139, 69, 19, 0.1) 0px,
+        rgba(139, 69, 19, 0.1) 1px,
+        transparent 1px,
+        transparent 20px
+      );
+  }
+}
+
+.dice-container {
+  perspective: 1000px;
+}
+
+.dice-rolling {
+  animation: diceRoll 0.6s ease-in-out;
+}
+
+.score-highlight {
+  animation: scoreHighlight 0.5s ease-in-out;
+}
+
+.timer-warning {
+  animation: timerPulse 0.5s ease-in-out infinite;
+}
