@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="80" fill="#8B4513"/>
+  <rect x="40" y="40" width="432" height="432" rx="60" fill="#F5F5DC" stroke="#8B4513" stroke-width="8"/>
+  <!-- Dice dots pattern for number 5 -->
+  <circle cx="150" cy="150" r="30" fill="#8B4513"/>
+  <circle cx="362" cy="150" r="30" fill="#8B4513"/>
+  <circle cx="256" cy="256" r="30" fill="#8B4513"/>
+  <circle cx="150" cy="362" r="30" fill="#8B4513"/>
+  <circle cx="362" cy="362" r="30" fill="#8B4513"/>
+</svg>

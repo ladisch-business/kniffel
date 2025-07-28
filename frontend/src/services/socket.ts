@@ -28,7 +28,7 @@ class SocketService {
   private listeners: Map<string, Function[]> = new Map();
 
   connect(token: string) {
-    const SOCKET_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:3001';
+    const SOCKET_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || window.location.origin;
     
     this.socket = io(SOCKET_URL, {
       auth: {

@@ -128,8 +128,22 @@ FRONTEND_URL=http://localhost:3000
 
 #### Frontend (.env)
 ```env
+# Development environment
 VITE_API_URL=http://localhost:3001/api
+
+# Production environment (uses relative URLs)
+# VITE_API_URL="" or omit entirely - nginx will proxy /api to backend
 ```
+
+### Docker Compose Konfiguration
+
+**Wichtig für Produktionsumgebung:**
+- Das Frontend ist so konfiguriert, dass es relative URLs (`/api`) verwendet
+- Nginx fungiert als Reverse Proxy und leitet API-Anfragen an den Backend-Service weiter
+- In der Entwicklung wird `VITE_API_URL=http://localhost:3001/api` verwendet
+- In der Produktion wird `VITE_API_URL=""` verwendet (relative URLs)
+
+**Für detaillierte Produktions-Deployment-Anleitung mit Nginx Proxy Manager siehe:** [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ### Docker Compose Konfiguration
 
