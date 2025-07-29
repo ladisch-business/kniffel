@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 
 import authRoutes from './routes/auth';
 import gameRoutes from './routes/games';
+import userRoutes from './routes/users';
 import { SocketService } from './services/socketService';
 
 dotenv.config();
@@ -23,6 +24,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/games', gameRoutes);
+app.use('/api/users', userRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
